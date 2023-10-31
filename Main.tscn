@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxv2jdv7katag"]
+
+[ext_resource type="PackedScene" uid="uid://btj15cl1jueqd" path="res://shell_texture.tscn" id="1_31xgo"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ShellTexture" parent="." instance=ExtResource("1_31xgo")]
+height = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.863237, 0.504799, 0, -0.504799, 0.863237, 0, 0.807884, 1.0785)

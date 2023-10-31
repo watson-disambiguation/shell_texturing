@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://btj15cl1jueqd"]
+
+[ext_resource type="Script" path="res://ShellTexture.gd" id="1_mk5g4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_07yei"]
+
+[node name="ShellTexture" type="Node3D"]
+script = ExtResource("1_mk5g4")
+model = SubResource("PlaneMesh_07yei")
