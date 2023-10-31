@@ -2,7 +2,9 @@ shader_type spatial;
 
 uniform float threshold = 0.1;
 uniform float strands = 100;
+uniform float height = 1;
 uniform vec3 color : source_color;
+
 // Hash from https://www.shadertoy.com/view/ttc3zr
 uint murmurHash(uvec2 src) {
     const uint M = 0x5bd1e995u;
@@ -25,17 +27,22 @@ float inverseLerp(float t, float to, float from) {
 	return (t - from) / (to - from);
 }
 
+
+
+void vertex() {
+	VERTEX += NORMAL * height;
+}
+
 void fragment() {
 	
 	vec2 strandUV = fract(UV * strands);
+	vec2 centeredStrandUV = strandUV - 0.5;
 	vec2 discreteUV = floor(UV * strands) / strands;
 	float noiseValue = hash(discreteUV);
-	if (noiseValue < threshold) {
-		ALBEDO = mix(vec3(0),color,1.-threshold);
-	}
-	else {
+	if (noiseValue < threshold || (length(centeredStrandUV) > 0.5 * (1. - threshold) && height > 0.)) {
 		discard;
 	}
+		ALBEDO = mix(vec3(0),color,threshold);
 }
 
 

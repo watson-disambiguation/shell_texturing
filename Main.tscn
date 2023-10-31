@@ -1,11 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxv2jdv7katag"]
+[gd_scene load_steps=3 format=3 uid="uid://dxv2jdv7katag"]
 
 [ext_resource type="PackedScene" uid="uid://btj15cl1jueqd" path="res://shell_texture.tscn" id="1_31xgo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_y3w38"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="ShellTexture" parent="." instance=ExtResource("1_31xgo")]
-height = 0.2
+transform = Transform3D(0.992166, 0.107933, -0.0629093, -0.104093, 0.992669, 0.0614299, 0.0690784, -0.0544003, 0.996127, 0, 0, 0)
+color = Color(1, 0.482353, 0, 1)
+numLayers = 16
+strands = 256
+height = 0.025
+model = SubResource("SphereMesh_y3w38")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.863237, 0.504799, 0, -0.504799, 0.863237, 0, 0.807884, 1.0785)
+transform = Transform3D(1, 0, 0, 0, 0.658755, 0.752358, 0, -0.752358, 0.658755, 0, 0.8429, 0.871704)

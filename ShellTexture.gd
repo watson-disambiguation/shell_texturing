@@ -15,18 +15,17 @@ func _ready():
 	
 	for i in range(0,numLayers+1):
 		var range: float =  float(i) / float(numLayers-1);
-		var threshold: float = 1 - range
+		var threshold: float = range
 		var mesh = MeshInstance3D.new()
 		mesh.mesh = model
-		# position modification for test
-		mesh.position = position + Vector3.UP * range * height
+
 		var material: ShaderMaterial = ShaderMaterial.new()
 		mesh.set_surface_override_material(0,material)
-		print_debug(mesh.get_surface_override_material(0))
 		material.shader = shellTextureShader;
 		material.set_shader_parameter("threshold",threshold)
 		material.set_shader_parameter("strands",float(strands))
 		material.set_shader_parameter("color",color)
+		material.set_shader_parameter("height",range * height)
 		add_child(mesh)
 	
 	
