@@ -21,6 +21,9 @@ float hash(vec2 src) {
 
 // end hash functions
 
+float inverseLerp(float t, float to, float from) {
+	return (t - from) / (to - from);
+}
 
 void fragment() {
 	
@@ -28,7 +31,7 @@ void fragment() {
 	vec2 discreteUV = floor(UV * strands) / strands;
 	float noiseValue = hash(discreteUV);
 	if (noiseValue < threshold) {
-		ALBEDO = color;
+		ALBEDO = mix(vec3(0),color,1.-threshold);
 	}
 	else {
 		discard;

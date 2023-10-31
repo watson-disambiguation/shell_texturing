@@ -7,6 +7,6 @@
 
 [node name="ShellTexture" type="Node3D"]
 script = ExtResource("1_mk5g4")
-color = Color(0.698039, 0.968627, 0, 1)
+color = Color(0, 0.968627, 0, 1)
 shellTextureShader = ExtResource("2_f0bl4")
 model = SubResource("PlaneMesh_07yei")
